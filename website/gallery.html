@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | UNDERWORLD</title>
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body>
+  <div class="custom-cursor"></div>
+
+  <div id="loading-screen">
+    <div class="loader-text">Loading...</div>
+  </div>
+  
+  <div class="gallery-wrapper">
+    <header>
+      <h1>UNDERWORLD GALLERY</h1>
+    </header>
+
+    <div class="art-display">
+      <!-- Artwork 1 (was Artwork 6) -->
+      <div class="art-piece active art-1">
+        <div class="art-label">
+          Tethered Haloes
+          <span class="read-more">Read More</span>
+          <div class="blurb">A school of glowing, bioluminescent forms drift weightlessly through a dark void like deep-sea creatures in a current. Each orb pulses with soft light, trailing tendrils that shimmer like jellyfish or plankton in motion. The piece is interactive and reactive, creating a hypnotic sense of submersion in a digital ocean where light and movement behave like underwater life.</div>
+        </div>
+        <iframe src="https://editor.p5js.org/coldchip/full/HdxlCj2Rf" allowfullscreen></iframe>
+      </div>
+    
+      <!-- Artwork 2 -->
+      <div class="art-piece art-2">
+        <div class="art-label">
+          Driftfish
+          <span class="interactive-tag">Interactive Artwork</span>
+          <span class="read-more">Read More</span>
+          <div class="blurb">An interactive, glowing core pulses at the center of a floating field of tendrils. Each click spawns a new form, with the tendrils swaying gently in deep violet light—evoking a living, alien presence suspended in space.</div>
+        </div>
+        <iframe src="https://editor.p5js.org/coldchip/full/KCDvuKTYN" allowfullscreen></iframe>
+      </div>
+    
+      <!-- Artwork 3 -->
+      <div class="art-piece art-3">
+        <div class="art-label">
+          Emo Pufferfish
+          <span class="read-more">Read More</span>
+          <div class="blurb">This wire frame oceanic being molds and adapts to a breeze or flow, giving it a beautiful, sentient aesthetic.</div>
+        </div>
+        <iframe src="https://editor.p5js.org/coldchip/full/Ztf2ZfnLX" allowfullscreen></iframe>
+      </div>
+    
+      <!-- Artwork 4 -->
+      <div class="art-piece art-4">
+        <div class="art-label">
+          Weightless
+          <span class="read-more">Read More</span>
+          <div class="blurb">Petal-like forms rise and pulse like a living reef, glowing softly as if swaying in ocean currents. This interactive sculpture evokes deep-sea flora or bioluminescent coral polyps, opening and fluttering in rhythmic harmony. </div>
+        </div>
+        <iframe src="https://editor.p5js.org/coldchip/full/P__QzbQ_h" allowfullscreen></iframe>
+      </div>
+    
+      <!-- Artwork 5 -->
+      <div class="art-piece art-5">
+        <div class="art-label">
+          Schools
+          <span class="read-more">Read More</span>
+          <div class="blurb">A glowing star drifts at the heart of a fluid constellation, its tendrils undulating like the fins of a celestial fish. Radiating in soft cyan light, the sculpture breathes with tidal motion — fins ripple outward in silent waves while bioluminescent sparks shimmer at the core. This dreamlike formation hovers between the deep sea and outer space, caught in an eternal drift.</div>
+        </div>
+        <iframe src="https://editor.p5js.org/coldchip/full/4d6f8p1gr" allowfullscreen></iframe>
+      </div>
+    
+      <!-- Artwork 6 (was Artwork 1) -->
+      <div class="art-piece art-6">
+        <div class="art-label">
+          Light Eye
+          <span class="read-more">Read More</span>
+          <div class="blurb">An interactive, glimmering structure that morphs. This metallic blob constantly pulses and twists, shaped by layered noise and motion—suggesting a synthetic lifeform in flux.</div>
+        </div>
+        <iframe src="https://editor.p5js.org/coldchip/full/J3sYv-QFb" allowfullscreen></iframe>
+      </div>
+    </div>
+    
+    <div class="gallery-controls">
+      <button id="prevBtn" class="nav-btn">&#10094;</button>
+      <button id="nextBtn" class="nav-btn">&#10095;</button>
+    </div>
+
+    <!-- Only ONE nav -->
+    <nav class="bottom-nav">
+      <a href="index.html">HOME</a>
+      <a href="gallery.html">GALLERY</a>
+      <a href="about.html">ABOUT</a>
+      <a href="upload.html">UPLOAD</a>
+    </nav>
+  </div>
+
+  <!-- Slide logic -->
+  <script src="gallery.js"></script>
+
+  <!-- Fallback nav (optional) -->
+  <script>
+    document.getElementById('homeLink')?.addEventListener('click', () => {
+      window.location = 'index.html';
+    });
+  </script>
+
+  <!-- Hide loader on load -->
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loading-screen');
+      loader.style.display = 'none';
+    });
+  </script>
+
+  <!-- 🔮 Custom Cursor Glow Script -->
+  <script>
+    const cursor = document.querySelector('.custom-cursor');
+
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    const growCursor = () => {
+      cursor.style.width = '35px';
+      cursor.style.height = '35px';
+      cursor.style.boxShadow = '0 0 20px #8b75ee, 0 0 40px #8b75eeaa';
+    };
+    const shrinkCursor = () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      cursor.style.boxShadow = '0 0 12px #8b75eeaa, 0 0 24px #8b75ee55';
+    };
+
+    document.querySelectorAll('a, button, .read-more').forEach(el => {
+      el.addEventListener('mouseenter', growCursor);
+      el.addEventListener('mouseleave', shrinkCursor);
+    });
+  </script>
+</body>
+</html>
